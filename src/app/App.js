@@ -9,6 +9,7 @@ import {
 import routes from './routes'
 import React from 'react';
 import Sports from '../components/Sports'
+import {fetchToken, generateRandomString} from '../features/fetch'
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
 
       <div>
         <button 
-        onClick={()=> window.location = "https://www.reddit.com/api/v1/authorize?client_id=CLIENT_ID&response_type=TYPE&state=RANDOM_STRING&redirect_uri=URI&duration=DURATION&scope=SCOPE_STRING"}>
+        onClick={()=> fetchToken()} >
           Authorize reddit
         </button>
       </div>
