@@ -33,3 +33,10 @@ nav a.active {
   font-weight: 900;
   text-decoration: underline;
 }
+
+button {
+  background-color: gray;
+  width: auto;
+  height: auto;
+  margin-top: 5rem;
+}
