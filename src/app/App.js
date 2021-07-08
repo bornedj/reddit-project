@@ -41,7 +41,7 @@ function App() {
 
       <div>
         <button 
-        onClick={()=> fetchCode().then(userCode => getToken(userCode))} >
+        onClick={()=> fetchCode()}>
           Authorize reddit
         </button>
       </div>
