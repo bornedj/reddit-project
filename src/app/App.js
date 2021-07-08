@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -8,7 +7,8 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import routes from './routes'
-
+import React from 'react';
+import Sports from '../components/Sports'
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
 
       <Switch>
         <Route path='/sports'>
-          {/* components to be returned */}
+          <Sports />
         </Route>
         <Route path='/fashion'>
           {/* components to be returned */}
