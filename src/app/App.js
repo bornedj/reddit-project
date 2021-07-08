@@ -9,7 +9,7 @@ import {
 import routes from './routes'
 import React from 'react';
 import Sports from '../components/Sports'
-import {fetchToken, generateRandomString} from '../features/fetch'
+import {fetchCode, generateRandomString, getToken} from '../features/fetch'
 
 function App() {
   return (
@@ -41,7 +41,7 @@ function App() {
 
       <div>
         <button 
-        onClick={()=> fetchToken()} >
+        onClick={()=> fetchCode().then(userCode => getToken(userCode))} >
           Authorize reddit
         </button>
       </div>
