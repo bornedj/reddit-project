@@ -8,6 +8,7 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import routes from './routes'
+import TileContainer from '../components/TileContainer/TileContainer'
 
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
 
       <Switch>
         <Route path='/sports'>
-          {/* components to be returned */}
+          <TileContainer props={process.env.REACT_APP_TEST_JSON.json()}/>
         </Route>
         <Route path='/fashion'>
           {/* components to be returned */}
