@@ -51,7 +51,7 @@ function App() {
           <TileContainer props={(process.env.REACT_APP_news_links)}/>
         </Route>
         <Route path='/humor'>
-          <TileContainer props={(process.env.REACT_APP_humor_links)}/>
+          <TileContainer props={process.env.REACT_APP_humor_links}/>
         </Route>
         <Route path='/'>
         </Route>

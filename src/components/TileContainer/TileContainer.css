@@ -6,6 +6,16 @@
     column-gap: 1em;
     row-gap: 1em;
     margin: 3rem 1em;
-    width: 100%;
+    width: auto;
     min-height: 100%;
+}
+
+@media only screen and (max-width: 760px) {
+    .TileContainer {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 3rem 1em;
+        width: auto;
+        height: auto;
+    }
 }

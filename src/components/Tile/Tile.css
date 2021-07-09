@@ -42,3 +42,9 @@
     justify-self: center;
     display: inline-block;
 }
+
+@media only screen and (max-width: 760px) {
+    .tile {
+        width: 100%;
+    }
+}
