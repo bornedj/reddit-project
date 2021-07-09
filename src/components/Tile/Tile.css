@@ -1,0 +1,22 @@
+.tile {
+    min-height: 30%; 
+    min-width: 15%;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+.tile h6 {
+    font-size: 1em;
+}
+
+.tile img {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+
+}

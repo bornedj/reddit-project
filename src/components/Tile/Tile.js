@@ -1,7 +1,14 @@
 import React from 'react';
+import './Tile.css'
 
 export default function Tile({props}) {
+    const title = props.title;
+    const image = props.thumbnail ? props.thumbnail : 'no image';
+    
     return (
-        <h6>{props}</h6>
+        <div className="tile">
+            <h6>{title}</h6>
+            <img src={image}></img>
+        </div>
     )
 }

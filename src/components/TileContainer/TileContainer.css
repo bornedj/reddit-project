@@ -1,9 +1,9 @@
-h2 {
-    margin-top: 3rem;
-    color: black;
-}
-
-h6 {
-    color: black;
-    margin-top: 5rem;
+.TileContainer {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-left: 1rem;
+    width: auto;
+    height: auto;
 }
