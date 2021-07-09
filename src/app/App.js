@@ -53,9 +53,10 @@ function App() {
         <Route path='/humor'>
           <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
         </Route>
+          <button onClick={async ()=> console.log(fetchWrapper(process.env.REACT_APP_fashion_links))}>
+            test
+          </button>
         <Route path='/'>
-          <button style={{margin: '5rem'}} 
-          onClick={()=> console.log(fetchWrapper(process.env.REACT_APP_fashion_links))}>Test fetch</button>
         </Route>
       </Switch>
     </Router>
