@@ -5,18 +5,25 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-items: flex-start;
     text-align: center;
     border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 0;
 
 }
 
 .tile h6 {
     font-size: 1em;
+    width: 100%;
+    display: inline-block;
+    margin: 1em 0;
 }
 
 .tile img {
-    width: auto;
-    height: auto;
-    object-fit: contain;
-
+    /* width: auto;
+    height: auto; */
+    object-fit: cover;
+    justify-self: center;
+    display: inline-block;
 }

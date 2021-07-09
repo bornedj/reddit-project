@@ -1,9 +1,11 @@
 .TileContainer {
     position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin-left: 1rem;
+    display: grid;
+    grid: repeat(5, 1fr) / repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    column-gap: 1em;
+    row-gap: 1em;
+    margin: 3rem 1em;
     width: auto;
     height: auto;
 }
