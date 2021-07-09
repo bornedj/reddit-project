@@ -38,16 +38,11 @@ function App() {
         </ul>
       </nav>
 
-      <div>
-        <button 
-        onClick={()=> fetchCode().then(userCode => getToken(userCode))} >
-          Authorize reddit
-        </button>
-      </div>
 
       <Switch>
         <Route path='/sports'>
-          <TileContainer props={process.env.REACT_APP_TEST_JSON.json()}/>
+          {/* <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/> */}
+          <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
         </Route>
         <Route path='/fashion'>
           {/* components to be returned */}
