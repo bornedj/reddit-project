@@ -1,5 +1,5 @@
-import logo from '../logo.svg';
 import './App.css';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import routes from './routes'
 import TileContainer from '../components/TileContainer/TileContainer'
-
 
 function App() {
   return (
@@ -38,6 +37,13 @@ function App() {
           </li>
         </ul>
       </nav>
+
+      <div>
+        <button 
+        onClick={()=> fetchCode().then(userCode => getToken(userCode))} >
+          Authorize reddit
+        </button>
+      </div>
 
       <Switch>
         <Route path='/sports'>
