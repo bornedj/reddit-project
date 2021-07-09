@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import routes from './routes'
 import TileContainer from '../components/TileContainer/TileContainer'
+import { fetchData, fetchWrapper } from '../features/fetch';
 
 function App() {
   return (
@@ -41,20 +42,20 @@ function App() {
 
       <Switch>
         <Route path='/sports'>
-          {/* <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/> */}
           <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
         </Route>
         <Route path='/fashion'>
-          {/* components to be returned */}
+          <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
         </Route>
         <Route path='/news'>
-          {/* components to be returned */}
+          <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
         </Route>
         <Route path='/humor'>
-          {/* components to be returned */}
+          <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
         </Route>
         <Route path='/'>
-          {/* components to be returned */}
+          <button style={{margin: '5rem'}} 
+          onClick={()=> console.log(fetchWrapper(process.env.REACT_APP_fashion_links))}>Test fetch</button>
         </Route>
       </Switch>
     </Router>
