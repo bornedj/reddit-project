@@ -20,10 +20,9 @@ export default function Tile({props}) {
 
     return (
         <div className="tile">
-            <a href={link} className='linkDiv'>
+            <a href={link} className='linkDiv' target='_blank'>
                 <h6>{title}</h6>
                 {image ? <img src={image} style={{width: imageWidth, height: imageHeight}}></img> : <p></p>}
-                {/* <img src={image} style={{width: imageWidth, height: imageHeight}}></img> */}
                 <h5>upvotes: {new Intl.NumberFormat('en-IN').format(upvotes)}</h5>
             </a>
         </div>

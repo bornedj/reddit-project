@@ -12,7 +12,6 @@ export default function TileContainer({props}) {
         setPost(data)
     }, [post])
 
-
     const postData = [];
     //old logic    
     if (post) {
