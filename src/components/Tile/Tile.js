@@ -19,10 +19,12 @@ export default function Tile({props}) {
     const upvotes = props.ups; 
 
     return (
-        <div className="tile">
-            <h6>{title}</h6>
-            <a href={link} target='_blank'><img src={image} style={{width: imageWidth, height: imageHeight}}></img></a>
-            <h5>upvotes: {new Intl.NumberFormat('en-IN').format(upvotes)}</h5>
-        </div>
+        <a href={link} target='_blank' className='linkDiv'>
+            <div className="tile">
+                <h6>{title}</h6>
+                <img src={image} style={{width: imageWidth, height: imageHeight}}></img>
+                <h5>upvotes: {new Intl.NumberFormat('en-IN').format(upvotes)}</h5>
+            </div>
+        </a>
     )
 }
