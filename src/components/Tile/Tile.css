@@ -1,6 +1,12 @@
 .linkDiv {
     text-decoration: none;
     color: black;
+    height: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
 }
 .tile {
     min-height: 30%; 
@@ -16,20 +22,20 @@
     margin: 0 0;
 }
 
-.tile h6 {
+.linkDiv h6 {
     font-size: 1em;
     width: 100%;
     display: inline-block;
     margin: 1em 0;
 }
 
-.tile h5 {
+.linkDiv h5 {
     font-weight: 400;
     width: 100%;
     margin: 0 0;
 }
 
-.tile img {
+.linkDiv img {
     /* width: auto;
     height: auto; */
     object-fit: cover;

@@ -6,6 +6,6 @@
     column-gap: 1em;
     row-gap: 1em;
     margin: 3rem 1em;
-    width: auto;
-    height: auto;
+    width: 100%;
+    min-height: 100%;
 }

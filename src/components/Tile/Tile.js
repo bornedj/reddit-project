@@ -6,10 +6,10 @@ export default function Tile({props}) {
     const title = props.title;
 
     // all image details
-    const image = props.thumbnail ? props.thumbnail : 'no image';
+    const image = props.thumbnail ? props.thumbnail : undefined;
     let imageHeight;
     let imageWidth;
-    if (image !== 'no image') {
+    if (image) {
         imageHeight = props.thumbnail_height * 1.5;
         imageWidth = props.thumbnail_width * 1.5;
     }
@@ -19,12 +19,13 @@ export default function Tile({props}) {
     const upvotes = props.ups; 
 
     return (
-        <a href={link} target='_blank' className='linkDiv'>
-            <div className="tile">
+        <div className="tile">
+            <a href={link} className='linkDiv'>
                 <h6>{title}</h6>
-                <img src={image} style={{width: imageWidth, height: imageHeight}}></img>
+                {image ? <img src={image} style={{width: imageWidth, height: imageHeight}}></img> : <p></p>}
+                {/* <img src={image} style={{width: imageWidth, height: imageHeight}}></img> */}
                 <h5>upvotes: {new Intl.NumberFormat('en-IN').format(upvotes)}</h5>
-            </div>
-        </a>
+            </a>
+        </div>
     )
 }

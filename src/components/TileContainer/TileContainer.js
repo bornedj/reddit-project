@@ -6,12 +6,12 @@ import { fetchWrapper } from '../../features/fetch';
 export default function TileContainer({props}) {
     const [post, setPost] = useState(undefined)
 
+    // use effect will update our posts
     useEffect(async () => {
-        const data = await fetchWrapper(process.env.REACT_APP_sports_links);
+        const data = await fetchWrapper(props);
         setPost(data)
     }, [post])
 
-    console.log(post)
 
     const postData = [];
     //old logic    

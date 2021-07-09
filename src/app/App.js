@@ -42,20 +42,17 @@ function App() {
 
       <Switch>
         <Route path='/sports'>
-          <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
+          <TileContainer props={(process.env.REACT_APP_sports_links)}/>
         </Route>
         <Route path='/fashion'>
-          <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
+          <TileContainer props={(process.env.REACT_APP_fashion_links)}/>
         </Route>
         <Route path='/news'>
-          <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
+          <TileContainer props={(process.env.REACT_APP_news_links)}/>
         </Route>
         <Route path='/humor'>
-          <TileContainer props={JSON.parse(process.env.REACT_APP_TEST_JSON)}/>
+          <TileContainer props={(process.env.REACT_APP_humor_links)}/>
         </Route>
-          <button onClick={async ()=> console.log(fetchWrapper(process.env.REACT_APP_fashion_links))}>
-            test
-          </button>
         <Route path='/'>
         </Route>
       </Switch>
