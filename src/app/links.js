@@ -3,9 +3,11 @@ const humor = ['https://www.reddit.com/r/ProgrammerHumor/hot.json']
 const news = ['https://www.reddit.com/r/news/hot.json']
 const fashion = ['https://www.reddit.com/r/streetwear/hot.json']
 
-export default links = {
-    sports,
-    humor,
-    news,
-    fashion
+const links = {
+    sports: sports,
+    humor: humor,
+    news: news,
+    fashion: fashion
 }
+
+export default links;
