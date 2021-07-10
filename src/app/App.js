@@ -9,7 +9,8 @@ import {
 } from "react-router-dom";
 import routes from './routes'
 import TileContainer from '../components/TileContainer/TileContainer'
-import { fetchData, fetchWrapper } from '../features/fetch';
+import { fetchData, fetchReddits, fetchWrapper, selectPosts } from '../features/fetch';
+import links from './links'
 
 function App() {
   return (
@@ -39,6 +40,8 @@ function App() {
         </ul>
       </nav>
 
+      <button onClick={() => selectPosts(links.sports)}>test fetch reddits</button>
+      
 
       <Switch>
         <Route path='/sports'>
