@@ -13,7 +13,7 @@ export const fetchWrapper = async (url) => {
 
 //function to fetch multiple reddits
 export const fetchReddits = async (props) => {
-    const subredditsData = [];// will mutate
+    const subredditsData = [];
     const children = [];
 
     for (let url of props) {
@@ -23,11 +23,13 @@ export const fetchReddits = async (props) => {
         subredditsData.push(children)
     }
 
+    console.log(subredditsData)
     return subredditsData;
 }
 export const selectPosts = async (props) => {
     const postsToShow = [];
     const subredditsData = await fetchReddits(props);
+    console.log(subredditsData)
 
     //while loop to select 32 posts to show
     do {
@@ -36,11 +38,12 @@ export const selectPosts = async (props) => {
             let idx = Math.floor(Math.random() * subredditsData[i].length);
             let dataToAdd = subredditsData[i][idx];
             subredditsData[i] = subredditsData[i].splice(idx, 1);
+            // console.log(subredditsData[i].length)
             postsToShow.push(dataToAdd);
         }
     } while (postsToShow.length < 33);
 
     // console.log(subredditsData)
-    console.log(postsToShow);
+    // console.log(postsToShow);
     return postsToShow;
 }

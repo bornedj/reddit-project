@@ -9,16 +9,16 @@ import { selectPosts } from '../../features/fetch';
 // function to select 32 posts from several different subreddit's json
 
 export default function TileContainer({props}) {
+    //loading posts on the switch
     const [posts, setPosts] = useState(undefined);
     const [refreshPosts, setRefreshPosts] = useState(false);
 
     //using selectposts to set the state of the posts
     useEffect(async () => {
         const data = await selectPosts(props);
-        console.log(data)
         setPosts(data)
     }, [refreshPosts])
-    console.log(posts)
+    // console.log(posts)
 
     if (posts) {
         return (
@@ -29,5 +29,7 @@ export default function TileContainer({props}) {
             </div>
         )
 
+    } else {
+        return null;
     } 
 }
