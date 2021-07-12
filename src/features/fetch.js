@@ -16,24 +16,21 @@ export const fetchReddits = async (props) => {
     const subredditsData = [];// will mutate
     const children = [];
 
-    props.forEach(async url => {
+    for (let url of props) {
         const oneSubreddit = await fetchWrapper(url);
-        //children are objects so flattening to arrays
         Object.entries(oneSubreddit.data.children).forEach(([idx, value]) => children.push(value))
 
         // console.log(children)
         subredditsData.push(children)
-    })
-    // console.log(subredditsData)
+    }
+
     return subredditsData;
 }
 export const selectPosts = async (props) => {
     const postsToShow = [];
     const subredditsData = await fetchReddits(props);
-    console.log('selectPosts starts')
     console.log(subredditsData)
 
-    console.log(subredditsData[0])
     for (let i = 0; i < subredditsData.length; i++) {
         console.log('at url loop')
         //get value from random index in array
@@ -45,7 +42,7 @@ export const selectPosts = async (props) => {
 
         // postsToShow.push('safe')
 
-    console.log(subredditsData)
-    // console.log(postsToShow);
+    // console.log(subredditsData)
+    console.log(postsToShow);
     return postsToShow;
 }
