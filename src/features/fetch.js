@@ -1,32 +1,26 @@
 // let url = "https://www.reddit.com/r/dankmemes/hot.json";
 // function will receive a link then go get the json from that link
 
-const fetchData = (url) => {
-    return fetch(url).then((response) => response.json());
+const fetchData =  async (url) => {
+    const data = await fetch(url).then((response) => response.json());
+    return data;
 }
-
-export const fetchWrapper = async (url) => {
-    const data = await fetchData(url);
-    return data
-}
-
 
 //function to fetch multiple reddits
 export const fetchReddits = async (props) => {
     const children = [];
 
     for (let url of props) {
-        const oneSubreddit = await fetchWrapper(url);
-        const child = await oneSubreddit.data.children
+        const oneSubreddit = await fetchData(url);
         // Object.entries(oneSubreddit.data.children).forEach(([idx, value]) => children.push(value))
 
-        console.log(child)
-        children.push(child)
-        // children.push(oneSubreddit.data.children)
+        console.log(oneSubreddit.data.children)
+        children.push(oneSubreddit.data.children)
     }
     console.log(children)
     return children;
 }
+
 export const selectPosts = async (props) => {
     const postsToShow = [];
     const subredditsData = await fetchReddits(props);
