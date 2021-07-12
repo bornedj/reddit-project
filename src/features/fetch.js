@@ -20,7 +20,6 @@ export const fetchReddits = async (props) => {
         const oneSubreddit = await fetchWrapper(url);
         Object.entries(oneSubreddit.data.children).forEach(([idx, value]) => children.push(value))
 
-        // console.log(children)
         subredditsData.push(children)
     }
 
@@ -29,8 +28,6 @@ export const fetchReddits = async (props) => {
 export const selectPosts = async (props) => {
     const postsToShow = [];
     const subredditsData = await fetchReddits(props);
-    // console.log(subredditsData)
-    // console.log(subredditsData[0])
 
     //while loop to select 32 posts to show
     do {

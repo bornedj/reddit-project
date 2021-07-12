@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import routes from './routes'
 import TileContainer from '../components/TileContainer/TileContainer'
-import { fetchData, fetchReddits, fetchWrapper, selectPosts } from '../features/fetch';
+import { selectPosts } from '../features/fetch';
 import links from './links'
 
 function App() {
@@ -45,16 +45,16 @@ function App() {
 
       <Switch>
         <Route path='/sports'>
-          <TileContainer props={(process.env.REACT_APP_sports_links)}/>
+          <TileContainer props={links.sports}/>
         </Route>
         <Route path='/fashion'>
-          <TileContainer props={(process.env.REACT_APP_fashion_links)}/>
+          <TileContainer props={links.fashion}/>
         </Route>
         <Route path='/news'>
-          <TileContainer props={(process.env.REACT_APP_news_links)}/>
+          <TileContainer props={links.news}/>
         </Route>
         <Route path='/humor'>
-          <TileContainer props={process.env.REACT_APP_humor_links}/>
+          <TileContainer props={links.humor}/>
         </Route>
         <Route path='/'>
         </Route>
