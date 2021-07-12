@@ -13,18 +13,19 @@ export const fetchWrapper = async (url) => {
 
 //function to fetch multiple reddits
 export const fetchReddits = async (props) => {
-    const subredditsData = [];
     const children = [];
 
     for (let url of props) {
         const oneSubreddit = await fetchWrapper(url);
-        Object.entries(oneSubreddit.data.children).forEach(([idx, value]) => children.push(value))
+        const child = await oneSubreddit.data.children
+        // Object.entries(oneSubreddit.data.children).forEach(([idx, value]) => children.push(value))
 
-        subredditsData.push(children)
+        console.log(child)
+        children.push(child)
+        // children.push(oneSubreddit.data.children)
     }
-
-    console.log(subredditsData)
-    return subredditsData;
+    console.log(children)
+    return children;
 }
 export const selectPosts = async (props) => {
     const postsToShow = [];

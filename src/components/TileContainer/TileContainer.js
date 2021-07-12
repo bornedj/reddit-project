@@ -17,6 +17,11 @@ export default function TileContainer({props}) {
     useEffect(async () => {
         const data = await selectPosts(props);
         setPosts(data)
+
+        // cleanup when loading another genre
+        // return function cleanup() {
+        //     setPosts(undefined)
+        // }
     }, [refreshPosts])
     // console.log(posts)
 
