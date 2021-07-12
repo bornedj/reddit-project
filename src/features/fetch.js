@@ -25,9 +25,7 @@ export const selectPosts = async (props) => {
             //get value from random index in array
             let idx = Math.floor(Math.random() * subredditsData[i].length);
             let dataToAdd = subredditsData[i][idx];
-            console.log(subredditsData[i].length)
             subredditsData[i].splice(idx, 1);
-            console.log(subredditsData[i].length)
             postsToShow.push(dataToAdd);
         }
     } while (postsToShow.length < 33);

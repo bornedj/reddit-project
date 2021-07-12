@@ -23,7 +23,6 @@ export default function TileContainer({props}) {
         //     setPosts(undefined)
         // }
     }, [refreshPosts])
-    // console.log(posts)
 
     if (posts) {
         return (
