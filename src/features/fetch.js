@@ -33,7 +33,7 @@ export const selectPosts = async (props) => {
     console.log('selectPosts starts')
     console.log(subredditsData)
 
-    // console.log(subredditsData)
+    console.log(subredditsData[0])
     for (let i = 0; i < subredditsData.length; i++) {
         console.log('at url loop')
         //get value from random index in array
