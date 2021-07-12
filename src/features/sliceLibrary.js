@@ -1,8 +1,9 @@
 import { createSlice,createReducer  } from "@reduxjs/toolkit";
+import links from "../app/links";
 import { selectPosts } from "./fetch";
 
 export const initialState = {
-    postsToShow: [],
+    postsToShow: selectPosts(links.sports),
     refreshPosts: false
 }
 
