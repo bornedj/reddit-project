@@ -13,6 +13,7 @@ import { selectPosts } from '../features/fetch';
 import links from './links'
 import { useDispatch } from 'react-redux';
 import { getSportsPosts, getSportsPostsAsync } from '../features/sportsSlice';
+import store from './store';
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +49,8 @@ function App() {
         dispatch(getSportsPostsAsync(links.sports))
       }
       }>test fetch reddits</button>
+
+      <button onClick={() => console.log(store.getState())}>Get state</button>
       
 
       <Switch>

@@ -2,7 +2,7 @@ import { createSlice, createReducer  } from "@reduxjs/toolkit";
 import { selectPosts } from "./fetch";
 
 export const initialState = {
-    postsToShow: [{}],
+    postsToShow: [],
     refreshPosts: false
 }
 
@@ -13,8 +13,7 @@ const sportsSlice = createSlice({
     initialState: initialState,
     reducers: {
         setSportsPosts: (state, action) => {
-            console.log(action)
-            state.sports.postsToShow = action.payload;
+            state.postsToShow = action.payload;
         }
     }
 })
