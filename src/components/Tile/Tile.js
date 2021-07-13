@@ -1,7 +1,7 @@
 import React from 'react';
 import './Tile.css'
 
-export default function Tile({props}) {
+export default function Tile({props}, {key}) {
     // get the necessary items from the props
     const title = props.title;
 

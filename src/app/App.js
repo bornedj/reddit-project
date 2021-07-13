@@ -55,16 +55,16 @@ function App() {
 
       <Switch>
         <Route path='/sports'>
-          <TileContainer props={links.sports}/>
+          <TileContainer props={links.sports} />
         </Route>
         <Route path='/fashion'>
-          <TileContainer props={links.fashion}/>
+          <TileContainer props={links.fashion} />
         </Route>
         <Route path='/news'>
-          <TileContainer props={links.news}/>
+          <TileContainer props={links.news} />
         </Route>
         <Route path='/humor'>
-          <TileContainer props={links.humor}/>
+          <TileContainer props={links.humor} />
         </Route>
         <Route path='/'>
         </Route>

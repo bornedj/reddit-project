@@ -13,16 +13,22 @@ const humorSlice = createSlice({
     reducers: {
         setHumorPosts: (state, action) => {
             state.postsToShow = action.payload;
+        },
+
+        toggleHumorRefresh: state => {
+            state.refreshPosts = state.refreshPosts ? false : true;
         }
     }
 })
 
+// await posts from the fetch, then dispatch an action to update the posts
 export const getHumorPostsAsync = links => async dispatch => {
     const data = await selectPosts(links);
     dispatch(setHumorPosts(data))
 }
 
 export const selectHumorPosts = state => state.humor.postsToShow;
+export const selectHumorRefresh = state => state.humor.refreshPosts;
 
-export const { setHumorPosts } = humorSlice.actions;
+export const { setHumorPosts, toggleHumorRefresh } = humorSlice.actions;
 export default humorSlice.reducer; 

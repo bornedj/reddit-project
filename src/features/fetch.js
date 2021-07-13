@@ -19,7 +19,6 @@ export const fetchReddits = async (props) => {
 export const selectPosts = async (props) => {
     const postsToShow = [];
     const subredditsData = await fetchReddits(props);
-    console.log(subredditsData)
 
     //while loop to select 32 posts to show
     do {
@@ -36,7 +35,5 @@ export const selectPosts = async (props) => {
         }
     } while (postsToShow.length < 32);
 
-    // console.log(subredditsData)
-    // console.log(postsToShow);
     return postsToShow;
 }
