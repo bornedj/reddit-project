@@ -1,10 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import links from "../app/links";
 import { selectPosts } from "./fetch";
 
 export const initialState = {
-    postsToShow: selectPosts(links.news),
-    links: links.news,
+    postsToShow: [{}],
     refreshPosts: false
 }
 
@@ -13,14 +11,18 @@ const newsSlice = createSlice({
     name: 'news',
     initialState: initialState,
     reducers: {
-        getNewsPosts: (state, action) => {
-            state.postsToShow = selectPosts(action.payload.links)
-        },
-
-        selectNewsPosts: state => state.sports.postsToShow
-
+        setNewsPosts: (state, action) => {
+            state.news.postsToShow = action.payload
+        }
     }
 })
 
-export const { selectNewsPosts, getNewsPosts } = newsSlice.actions;
+export const getNewsPostsAsync = links => async dispatch => {
+    const data = await selectPosts(links);
+    dispatch(setNewsPosts(data))
+}
+
+export const selectNewsPosts = state => state.news.postsToShow;
+
+export const { setNewsPosts } = newsSlice.actions;
 export default newsSlice.reducer; 

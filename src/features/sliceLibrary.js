@@ -3,25 +3,29 @@ import links from "../app/links";
 import { selectPosts } from "./fetch";
 
 export const initialState = {
-    postsToShow: selectPosts(links.sports),
+    postsToShow: [{}],
+    links: [],
     refreshPosts: false
 }
 
+export const getPostsAsync = links => async dispatch => {
+    const  data = await selectPosts(links);
+    dispatch(getPosts(data))
+}
 
 //slice
 const slice = createSlice({
     name: 'library',
     initialState: initialState,
     reducers: {
-        getPosts: (state, action) => {
-            state.postsToShow = selectPosts(action.payload.links)
+        setPosts: (state, action) => {
+            state.genre.postsToShow = action.payload.posts 
         },
 
-        selectPosts: selectGenre(state)
 
     }
 })
 
 
 // example selector for the array of json
-const selectGenre = state => state.genre.postsToShow;
+export const selectGenre = state => state.genre.postsToShow;

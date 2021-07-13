@@ -1,10 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import links from "../app/links";
 import { selectPosts } from "./fetch";
 
 export const initialState = {
-    postsToShow: selectPosts(links.fashion),
-    links: links.fashion,
+    postsToShow: [{}],
     refreshPosts: false
 }
 
@@ -13,14 +11,18 @@ const fashionSlice = createSlice({
     name: 'fashion',
     initialState: initialState,
     reducers: {
-        getFashionPosts: (state, action) => {
-            state.postsToShow = selectPosts(action.payload.links)
-        },
-
-        selectFashionPosts: state => state.fashion.postsToShow
-
+        setFashionPosts: (state, action) => {
+            state.fashion.postsToShow = action.payload
+        }
     }
 })
 
-export const { selectFashionPosts, getFashionPosts } = fashionSlice.actions;
+export const getFashionPostsAsync = links => async dispatch => {
+    const data = await selectPosts(links);
+    dispatch(setFashionPosts(data))
+}
+
+export const selectFashionPosts = state => state.fashion.postsToShow;
+
+export const { setFashionPosts } = fashionSlice.actions;
 export default fashionSlice.reducer; 

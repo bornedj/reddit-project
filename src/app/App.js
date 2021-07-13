@@ -11,8 +11,11 @@ import routes from './routes'
 import TileContainer from '../components/TileContainer/TileContainer'
 import { selectPosts } from '../features/fetch';
 import links from './links'
+import { useDispatch } from 'react-redux';
+import { getSportsPosts } from '../features/sportsSlice';
 
 function App() {
+  const dispatch = useDispatch();
   return (
     <Router>
       <nav>
@@ -40,7 +43,11 @@ function App() {
         </ul>
       </nav>
 
-      <button onClick={() => selectPosts(links.sports)}>test fetch reddits</button>
+      <button onClick={() => { 
+        selectPosts(links.sports)
+        // dispatch(getSportsPosts)
+      }
+      }>test fetch reddits</button>
       
 
       <Switch>

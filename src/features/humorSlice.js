@@ -1,10 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import links from "../app/links";
 import { selectPosts } from "./fetch";
 
 export const initialState = {
-    postsToShow: selectPosts(links.humor),
-    links: links.humor,
+    postsToShow: [{}],
     refreshPosts: false
 }
 
@@ -13,14 +11,18 @@ const humorSlice = createSlice({
     name: 'humor',
     initialState: initialState,
     reducers: {
-        getHumorPosts: (state, action) => {
-            state.postsToShow = selectPosts(action.payload.links)
-        },
-
-        selectHumorPosts: state => state.humor.postsToShow
-
+        setHumorPosts: (state, action) => {
+            state.humor.postsToShow = action.payload;
+        }
     }
 })
 
-export const { selectHumorPosts, getHumorPosts } = humorSlice.actions;
+export const getHumorPostsAsync = links => async dispatch => {
+    const data = await selectPosts(links);
+    dispatch(setHumorPosts(data))
+}
+
+export const selectHumorPosts = state => state.humor.postsToShow;
+
+export const { setHumorPosts } = humorSlice.actions;
 export default humorSlice.reducer; 

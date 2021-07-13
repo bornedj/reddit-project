@@ -18,10 +18,6 @@ export default function TileContainer({props}) {
         const data = await selectPosts(props);
         setPosts(data)
 
-        // cleanup when loading another genre
-        // return function cleanup() {
-        //     setPosts(undefined)
-        // }
     }, [refreshPosts])
 
     if (posts) {
