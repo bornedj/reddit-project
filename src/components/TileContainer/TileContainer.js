@@ -19,8 +19,12 @@ export default function TileContainer({props}) {
 
     //using selectposts to set the state of the posts
     useEffect(async () => {
+        document.querySelector('html').style.cursor = 'wait'
         const data = await selectPosts(props);
+        document.querySelector('html').style.cursor = ''
         setPosts(data)
+
+        console.log(document.querySelector('body').style.cursor)
     }, [props, refresh])
 
 
