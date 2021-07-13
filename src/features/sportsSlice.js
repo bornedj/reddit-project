@@ -13,6 +13,7 @@ const sportsSlice = createSlice({
     initialState: initialState,
     reducers: {
         setSportsPosts: (state, action) => {
+            console.log(action)
             state.sports.postsToShow = action.payload;
         }
     }
@@ -20,11 +21,12 @@ const sportsSlice = createSlice({
 
 // await posts from the fetch, then dispatch an action to update the posts
 export const getSportsPostsAsync = links => async dispatch => {
-    const data = await selectPosts(links.sports);
+    console.log('here')
+    const data = await selectPosts(links);
     dispatch(setSportsPosts(data));
 }
 
 export const selectSportsPosts = state => state.sports.postsToShow;
 
-export const { selectSportsPosts, getSportsPosts } = sportsSlice.actions;
+export const { setSportsPosts } = sportsSlice.actions;
 export default sportsSlice.reducer; 

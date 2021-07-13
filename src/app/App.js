@@ -12,7 +12,7 @@ import TileContainer from '../components/TileContainer/TileContainer'
 import { selectPosts } from '../features/fetch';
 import links from './links'
 import { useDispatch } from 'react-redux';
-import { getSportsPosts } from '../features/sportsSlice';
+import { getSportsPosts, getSportsPostsAsync } from '../features/sportsSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ function App() {
 
       <button onClick={() => { 
         selectPosts(links.sports)
-        // dispatch(getSportsPosts)
+        dispatch(getSportsPostsAsync(links.sports))
       }
       }>test fetch reddits</button>
       
