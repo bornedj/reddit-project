@@ -5,15 +5,11 @@ import {
   Switch,
   Route,
   NavLink,
-  useRouteMatch,
 } from "react-router-dom";
 import routes from './routes'
 import TileContainer from '../components/TileContainer/TileContainer'
-import { selectPosts } from '../features/fetch';
 import links from './links'
 import { useDispatch } from 'react-redux';
-import { getSportsPostsAsync, selectSportsPosts, toggleSportsRefresh } from '../features/sportsSlice';
-import store from './store';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,10 +18,7 @@ function App() {
       <nav>
         <ul>
           <li>
-            <NavLink to={routes.sports()} activeClassName="active" 
-            onClick={() => {
-              dispatch(toggleSportsRefresh())
-              } }>
+            <NavLink to={routes.sports()} activeClassName="active" >
               Sports
             </NavLink>
           </li>
@@ -46,15 +39,6 @@ function App() {
           </li>
         </ul>
       </nav>
-
-      <button onClick={() => { 
-        selectPosts(links.sports)
-        dispatch(getSportsPostsAsync(links.sports))
-      }
-      }>test fetch reddits</button>
-
-      <button onClick={() => console.log(store.getState())}>Get state</button>
-      
 
       <Switch>
         <Route path='/sports'>

@@ -1,3 +1,21 @@
+.genreContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.genreContainer button {
+    justify-self: center;
+    background-color: white;
+    border: 3px solid #ff4301;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.genreContainer button:hover {
+    background: #ff4301;
+}
+
 .TileContainer {
     position: relative;
     display: grid;
