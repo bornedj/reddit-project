@@ -12,7 +12,7 @@ const humorSlice = createSlice({
     initialState: initialState,
     reducers: {
         setHumorPosts: (state, action) => {
-            state.humor.postsToShow = action.payload;
+            state.postsToShow = action.payload;
         }
     }
 })

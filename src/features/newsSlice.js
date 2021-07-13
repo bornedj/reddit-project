@@ -12,7 +12,7 @@ const newsSlice = createSlice({
     initialState: initialState,
     reducers: {
         setNewsPosts: (state, action) => {
-            state.news.postsToShow = action.payload
+            state.postsToShow = action.payload
         }
     }
 })

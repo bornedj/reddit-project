@@ -12,7 +12,7 @@ import TileContainer from '../components/TileContainer/TileContainer'
 import { selectPosts } from '../features/fetch';
 import links from './links'
 import { useDispatch } from 'react-redux';
-import { getSportsPosts, getSportsPostsAsync } from '../features/sportsSlice';
+import { getSportsPostsAsync, selectSportsPosts } from '../features/sportsSlice';
 import store from './store';
 
 function App() {

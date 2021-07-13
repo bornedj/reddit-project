@@ -25,7 +25,7 @@ export const getSportsPostsAsync = links => async dispatch => {
     dispatch(setSportsPosts(data));
 }
 
-export const selectSportsPosts = state => state.sports.postsToShow;
+export const selectSportsPosts = state => state.postsToShow;
 
 export const { setSportsPosts } = sportsSlice.actions;
 export default sportsSlice.reducer; 

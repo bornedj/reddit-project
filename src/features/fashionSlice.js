@@ -12,7 +12,7 @@ const fashionSlice = createSlice({
     initialState: initialState,
     reducers: {
         setFashionPosts: (state, action) => {
-            state.fashion.postsToShow = action.payload
+            state.postsToShow = action.payload
         }
     }
 })

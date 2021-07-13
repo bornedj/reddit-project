@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './TileContainer.css'
 import Tile from '../Tile/Tile';
-import { fetchWrapper } from '../../features/fetch';
-import links from '../../app/links';
 import { selectPosts } from '../../features/fetch';
 
 

@@ -1,3 +1,4 @@
+// file that contains functions used to fetch posts to display
 const fetchData =  async (url) => {
     const data = await fetch(url).then((response) => response.json());
     return data;
