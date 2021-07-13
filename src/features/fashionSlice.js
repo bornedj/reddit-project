@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import links from "../app/links";
 import { selectPosts } from "./fetch";
 
 export const initialState = {
     postsToShow: [{}],
-    refreshPosts: false
+    refreshPosts: true
 }
 
 //slice

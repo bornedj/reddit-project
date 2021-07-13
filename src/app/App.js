@@ -9,16 +9,14 @@ import {
 import routes from './routes'
 import TileContainer from '../components/TileContainer/TileContainer'
 import links from './links'
-import { useDispatch } from 'react-redux';
 
 function App() {
-  const dispatch = useDispatch();
   return (
     <Router>
       <nav>
         <ul>
           <li>
-            <NavLink to={routes.sports()} activeClassName="active" >
+            <NavLink to={routes.sports()} activeClassName="active">
               Sports
             </NavLink>
           </li>
