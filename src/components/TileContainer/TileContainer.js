@@ -18,7 +18,6 @@ export default function TileContainer({props}) {
     let whichState;
     switch (props) {
         case links.sports:
-            console.log('here')
             whichState = selectSportsRefresh 
             break;
         case links.humor:
@@ -37,7 +36,6 @@ export default function TileContainer({props}) {
 
     //loading posts on the switch
     const [posts, setPosts] = useState(undefined);
-    console.log(whichState)
     const [refresh, setRefresh] = useState(useSelector(whichState))
 
     //using selectposts to set the state of the posts
@@ -45,9 +43,11 @@ export default function TileContainer({props}) {
         const data = await selectPosts(props);
         setPosts(data)
 
-        // return function cleanup() {
-        //     setPosts(undefined)
-        // }
+        return function cleanup() {
+            setPosts(undefined)
+            const newRefresh = refresh ? false : true;
+            setRefresh(newRefresh)
+        }
     }, [refresh])
 
     if (posts) {

@@ -12,7 +12,7 @@ import TileContainer from '../components/TileContainer/TileContainer'
 import { selectPosts } from '../features/fetch';
 import links from './links'
 import { useDispatch } from 'react-redux';
-import { getSportsPostsAsync, selectSportsPosts } from '../features/sportsSlice';
+import { getSportsPostsAsync, selectSportsPosts, toggleSportsRefresh } from '../features/sportsSlice';
 import store from './store';
 
 function App() {
@@ -22,7 +22,10 @@ function App() {
       <nav>
         <ul>
           <li>
-            <NavLink to={routes.sports()} activeClassName="active">
+            <NavLink to={routes.sports()} activeClassName="active" 
+            onClick={() => {
+              dispatch(toggleSportsRefresh())
+              } }>
               Sports
             </NavLink>
           </li>
