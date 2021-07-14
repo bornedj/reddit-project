@@ -3,7 +3,7 @@ import { selectPosts } from "./fetch";
 
 export const initialState = {
     postsToShow: [{}],
-    refreshPosts: false
+    refreshPosts: true
 }
 
 //slice

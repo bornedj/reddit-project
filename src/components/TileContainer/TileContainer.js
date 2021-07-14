@@ -14,56 +14,55 @@ export default function TileContainer({props}) {
     const dispatch = useDispatch();
 
     // determining which slice to pull data from
-    // let whichRefresh;
-    // let whichState;
-    // switch (props) {
-    //     case links.sports:
-    //        whichRefresh = selectSportsRefresh;
-    //        whichState = selectSportsPosts;
-    //        getNewState = getSportsPostsAsync(links.sports);
-    //        whichToggle = toggleSportsRefresh;
-    //        break;
-    //     case links.fashion:
-    //         whichRefresh = selectFashionRefresh;
-    //         whichState = selectFashionPosts;
-    //         getNewState = getFashionPostsAsync(links.fashion);
-    //         whichToggle = toggleFashionRefresh;
-    //        break;
-    //     case links.news:
-    //         whichRefresh = selectNewsRefresh;
-    //         whichState = selectNewsPosts;
-    //         getNewState = getNewsPostsAsync(links.news);
-    //         whichToggle = toggleNewsRefresh;
-    //         break; 
-    //     case links.humor:
-    //         whichRefresh = selectHumorRefresh;
-    //         whichState = selectHumorPosts;
-    //         getNewState = getHumorPostsAsync(links.humor);
-    //         whichToggle = toggleHumorRefresh;
-    //         break; 
-    //     default: 
-    //         whichRefresh = 'error'
-    //         whichState = 'error';
-    //         getNewState = 'error'
-    //         break;
-    // }
+    let getNewState;
+    let whichToggle;
+    let whichRefresh;
+    switch (props) {
+        case links.sports:
+           getNewState = getSportsPostsAsync(links.sports);
+           whichToggle = toggleSportsRefresh;
+           whichRefresh = selectSportsRefresh;
+           break;
+        case links.fashion:
+            getNewState = getFashionPostsAsync(links.fashion);
+            whichToggle = toggleFashionRefresh;
+            whichRefresh = selectFashionRefresh;
+           break;
+        case links.news:
+            getNewState = getNewsPostsAsync(links.news);
+            whichToggle = toggleNewsRefresh;
+            whichRefresh = selectNewsRefresh;
+            break; 
+        case links.humor:
+            getNewState = getHumorPostsAsync(links.humor);
+            whichToggle = toggleHumorRefresh;
+            whichRefresh = selectHumorRefresh;
+            break; 
+        default: 
+            getNewState = 'error'
+            whichToggle = 'error'
+            break;
+    }
 
     //loading posts on the switch
     const [posts, setPosts] = useState(undefined);
-    const [refresh, setRefresh] = useState(false)
+    const [refresh, setRefresh] = useState(useSelector(whichRefresh))
 
     // function to toggle refresh which will update the posts
     const toggleRefesh = () => {
         const bool = refresh ? false : true;
         setRefresh(bool)
+        dispatch(whichToggle)
     }
 
     //using selectposts to set the state of the posts
     useEffect(async () => {
         document.querySelector('*').style.cursor = 'wait'
         const data = await selectPosts(props);
-        document.querySelector('*').style.cursor = ''
+        dispatch(getNewState)
+        dispatch(whichToggle)
         setPosts(data)
+        document.querySelector('*').style.cursor = ''
     }, [props, refresh])
 
 
